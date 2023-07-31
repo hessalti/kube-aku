@@ -24,8 +24,7 @@
 
 ## Overview
 
-This document presents a guide to using Kubernetes StatefulSet using Altibase Docker image.
-- This document presents an example of using 4 pods using Altibase's aku utility, which automatically configures Altibase replication during scale-down and scale-up in a Kubernetes StatefulSet environment.
+This document presents a sample guide to using Kubernetes StatefulSet using Altibase aku.
 - For aku, refer to the aku section in the Altibase Utilities manual.
 - The contents of this document are for sample purposes only, and should be modified according to each purpose and environment in the actual environment.
 - test environment
