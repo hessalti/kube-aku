@@ -1,4 +1,4 @@
-# Kubernetes User's Guide for Altibase
+# Altibase aku Sample Guide for Kubernetes
 
 - [개요](#개요)
 - [Altibase Docker image 생성](#Altibase-Docker-image-생성)
