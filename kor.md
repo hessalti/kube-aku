@@ -19,13 +19,13 @@
   - [StatefulSet 생성](#StatefulSet-생성)
   - [StatefulSet 및 Pod 생성 확인](#StatefulSet-및-Pod-생성-확인)
   - [이중화 동작 확인](#이중화-동작-확인)
-  - [Scale-in 동작확인](#Scale-in-동작확인)
-  - [Scale-out 동작확인](#Scale-out-동작확인)
+  - [Scale-down 동작확인](#Scale-down-동작확인)
+  - [Scale-up 동작확인](#Scale-up-동작확인)
 
 ## 개요
 
 본 문서는 Altibase Docker image를 이용하여 Kubernetes StatefulSet을 사용하는 가이드를 제시합니다. 
-- 본 문서는 Kubernetes StatefulSet 환경에서 scale-in 과 scale-out 시 이중화 설정을 자동으로 수행하는 Altibase의 aku utility를 사용하여 4개의 pod를 사용하는 예제를 제시합니다.
+- 본 문서는 Kubernetes StatefulSet 환경에서 scale-down 과 scale-up 시 이중화 설정을 자동으로 수행하는 Altibase의 aku utility를 사용하여 4개의 pod를 사용하는 예제를 제시합니다.
 - aku에 대해서는 Altibase Utilities 매뉴얼에서 aku 항목을 참고합니다.
 - 본 문서의 내용은 샘플용도이며, 실제환경에서는 각각의 용도 및 환경에 맞추어 수정되어야 합니다.
 - 테스트 환경
@@ -511,8 +511,8 @@ I1          I2
 1 row selected.
 ```
 
-##### Scale-in 동작확인
-- replicas=3 으로 scale-in 한다.
+##### Scale-down 동작확인
+- replicas=3 으로 scale-down 한다.
 - altibase-sts-2 pod에 접속한다.
 - AKU_REP_23 이중화의 XSN 값이 reset 상태인 -1 인것을 확인한다.
 
@@ -539,10 +539,10 @@ AKU_REP_23                                -1
 3 rows selected.
 ```
 
-##### Scale-out 동작확인
+##### Scale-up 동작확인
 - altibase-sts-0 pod에 접속하여, T1 테이블에 추가로 데이터를 입력한다.
-- replicas=4 로 scale-out 한다.
-- altibase-sts-3 pod에 접속하여, T1 테이블에 추가로 입력한 데이터가 scale-out된 pod에 반영되어 있는지 확인한다.
+- replicas=4 로 scale-up 한다.
+- altibase-sts-3 pod에 접속하여, T1 테이블에 추가로 입력한 데이터가 scale-up된 pod에 반영되어 있는지 확인한다.
 
 ```
 $ kubectl exec -it altibase-sts-0 -- /bin/bash
