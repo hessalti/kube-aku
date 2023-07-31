@@ -1,4 +1,4 @@
-# Kubernetes User's Guide for Altibase
+# Altibase aku Sample Guide for Kubernetes
 
 - [Overview](#Overview)
 - [Create Altibase Docker image](#Create-Altibase-Docker-image)
@@ -19,13 +19,13 @@
   - [Create StatefulSet](#Create-StatefulSet)
   - [Confirm StatefulSet and Pod creation](#Confirm-StatefulSet-and-Pod-creation)
   - [Check Altibase replication operation](#Check-Altibase-replication-operation)
-  - [Check Scale-in operation](#Check-Scale-in-operation)
-  - [Check Scale-out operation](#Check-Scale-out-operation)
+  - [Check Scale-down operation](#Check-Scale-down-operation)
+  - [Check Scale-up operation](#Check-Scale-up-operation)
 
 ## Overview
 
 This document presents a guide to using Kubernetes StatefulSet using Altibase Docker image.
-- This document presents an example of using 4 pods using Altibase's aku utility, which automatically configures Altibase replication during scale-in and scale-out in a Kubernetes StatefulSet environment.
+- This document presents an example of using 4 pods using Altibase's aku utility, which automatically configures Altibase replication during scale-down and scale-up in a Kubernetes StatefulSet environment.
 - For aku, refer to the aku section in the Altibase Utilities manual.
 - The contents of this document are for sample purposes only, and should be modified according to each purpose and environment in the actual environment.
 - test environment
@@ -511,9 +511,9 @@ I1          I2
 1 row selected.
 ```
 
-##### Check Scale-in operation
+##### Check Scale-down operation
 
-- Scale-in with replicas=3.
+- Scale-down with replicas=3.
 - Connect to the altibase-sts-2 pod.
 - Check that the XSN value of replication AKU_REP_23 is -1, which is the reset state.
 
@@ -540,11 +540,11 @@ AKU_REP_23                                -1
 3 rows selected.
 ```
 
-##### Check Scale-out operation
+##### Check Scale-up operation
 
 - Connect to the altibase-sts-0 pod and insert additional data into the T1 table.
-- Scale-out with replicas=4.
-- Connect to the altibase-sts-3 pod and check if the data additionally inserted in the T1 table is reflected in the scaled-out pod.
+- Scale-up with replicas=4.
+- Connect to the altibase-sts-3 pod and check if the data additionally inserted in the T1 table is reflected in the scaled-up pod.
 
 ```
 $ kubectl exec -it altibase-sts-0 -- /bin/bash
