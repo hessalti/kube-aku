@@ -24,8 +24,7 @@
 
 ## 개요
 
-본 문서는 Altibase Docker image를 이용하여 Kubernetes StatefulSet을 사용하는 가이드를 제시합니다. 
-- 본 문서는 Kubernetes StatefulSet 환경에서 scale-down 과 scale-up 시 이중화 설정을 자동으로 수행하는 Altibase의 aku utility를 사용하여 4개의 pod를 사용하는 예제를 제시합니다.
+본 문서는 Altibase aku를 이용하여 Kubernetes StatefulSet을 사용하는 가이드를 제시합니다. 
 - aku에 대해서는 Altibase Utilities 매뉴얼에서 aku 항목을 참고합니다.
 - 본 문서의 내용은 샘플용도이며, 실제환경에서는 각각의 용도 및 환경에 맞추어 수정되어야 합니다.
 - 테스트 환경
